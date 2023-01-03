@@ -5,10 +5,11 @@
 package com.mycompany;
 
 public class CarLoan {
+
     String ApplicantUniqueCode;
     int repaymentPeriod;
     double amountRequested;
-     double monthlyInstallment;
+    double monthlyInstallment;
     double totalRepayment;
 
     public void setApplicantUniqueCode(String applicantUniqueCode) {
@@ -17,7 +18,7 @@ public class CarLoan {
 
     public CarLoan() {
     }
-    
+
     public CarLoan(int repaymentPeriod, double amountRequested) {
         this.repaymentPeriod = repaymentPeriod;
         this.amountRequested = amountRequested;
@@ -30,20 +31,40 @@ public class CarLoan {
     public void setAmountRequested(double amountRequested) {
         this.amountRequested = amountRequested;
     }
-    
+
 //    Monthly Interest Rate : 7% (irrespective of repayment period)
- public double calculateCarLoan(int repaymentPeriod, double amountRequested){
-         monthlyInstallment = (amountRequested/repaymentPeriod)+(amountRequested*0.07)/repaymentPeriod;
-     totalRepayment =(monthlyInstallment*repaymentPeriod);
+    public double calculateCarLoan(int repaymentPeriod, double amountRequested) {
+        monthlyInstallment = (amountRequested / repaymentPeriod) + (amountRequested * 0.07) / repaymentPeriod;
+        totalRepayment = (monthlyInstallment * repaymentPeriod);
         return totalRepayment;
     }
-    
+
     public double getTotalRepayment() {
-    return totalRepayment;
+        return totalRepayment;
     }
 
     @Override
     public String toString() {
-        return "{Loan Type = Car Loan" + ", Applicant Unique Code = " + ApplicantUniqueCode + ", Installment Period = " + repaymentPeriod +" months, Amount of Loan Requested = EUR " + amountRequested + ", Monthly Installment = EUR " + monthlyInstallment + ", Total Repayment = EUR " + totalRepayment + '}';
+        return "{Loan Type = Car Loan" + ", Applicant Unique Code = " + ApplicantUniqueCode + ", Installment Period = " + repaymentPeriod + " months, Amount of Loan Requested = EUR " + amountRequested + ", Monthly Installment = EUR " + monthlyInstallment + ", Total Repayment = EUR " + totalRepayment + '}';
     }
+    
+     public boolean carLoanRepaymentPeriod(int repaymentPeriod) {
+        return (repaymentPeriod > 0 && repaymentPeriod <= 19 );
+    }
+
+
+     
+     
+     
+     
+     
+//    public String carLoanRepaymentPeriodInputType(int repaymentPeriod) {
+//        String repaymentPeriodString = String.valueOf(repaymentPeriod);
+//        if (Pattern.matches("[0-9]{2}", repaymentPeriodString)) {
+//            return "Next Step";
+//        } else {
+//           return "Car Loan Repayment Period: Maximum 19 months or Make sure your input is number";
+//        }
+//    }
+
 }

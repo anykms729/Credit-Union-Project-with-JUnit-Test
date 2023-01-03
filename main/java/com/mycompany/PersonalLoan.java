@@ -5,6 +5,7 @@
 package com.mycompany;
 
 public class PersonalLoan {
+
     String ApplicantUniqueCode;
     int repaymentPeriod;
     double amountRequested;
@@ -12,10 +13,9 @@ public class PersonalLoan {
     double totalRepayment;
     double annualIncome;
 
-    
     public PersonalLoan() {
     }
-    
+
     public PersonalLoan(int repaymentPeriod, double amountRequested) {
         this.repaymentPeriod = repaymentPeriod;
         this.amountRequested = amountRequested;
@@ -32,23 +32,31 @@ public class PersonalLoan {
     public void setAmountRequested(double amountRequested) {
         this.amountRequested = amountRequested;
     }
-    public void loanAndAnnualIncome(double amountRequested, double annualIncome){
+
+    public void loanAndAnnualIncome(double amountRequested, double annualIncome) {
     }
-    
+
 //  Interest Rate : 4% of Principal balance (irrespective of repayment period)
-    public double calculatePersonalLoan(int repaymentPeriod, double amountRequested){
-         monthlyInstallment = (amountRequested/repaymentPeriod)+(amountRequested*0.04)/repaymentPeriod;
-     totalRepayment =(monthlyInstallment*repaymentPeriod);
+    public double calculatePersonalLoan(int repaymentPeriod, double amountRequested) {
+        monthlyInstallment = (amountRequested / repaymentPeriod) + (amountRequested * 0.04) / repaymentPeriod;
+        totalRepayment = (monthlyInstallment * repaymentPeriod);
         return totalRepayment;
     }
-    public boolean annualIncomeAndRequestedLoan(double annualIncome, double amountRequested){
-        return annualIncome>amountRequested;
+
+    public boolean annualIncomeAndRequestedLoan(double annualIncome, double amountRequested) {
+        return annualIncome > amountRequested;
     }
-    
-     
-     
+
+    public boolean personalLoanRequestFrequency(int loanRequestFrequency) {
+        return loanRequestFrequency > 0 && loanRequestFrequency < 5;
+    }
+
+    public boolean personalLoanRepaymentPeriod(int repaymentPeriod) {
+        return repaymentPeriod > 0 && repaymentPeriod <= 24;
+    }
+
     public double getTotalRepayment() {
-    return totalRepayment;
+        return totalRepayment;
     }
 
     @Override
